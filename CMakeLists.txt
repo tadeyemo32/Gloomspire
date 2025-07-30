@@ -20,8 +20,13 @@ endif()
 add_executable(${PROJECT_NAME}
     src/main.cpp
     src/game.cpp
+    src/entity.cpp
+    src/assetManager.cpp
     include/game.h
     include/constants.h
+    include/entity.h
+    include/hero.h
+    include/assetManager.h
 )
 
 # Link against raylib

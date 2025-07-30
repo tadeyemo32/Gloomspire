@@ -1,14 +1,16 @@
+// game.h
 #pragma once
 #include "constants.h"
 #include "raylib.h"
-#include <unordered_map>
+#include "entity.h"
+#include "assetManager.h"
 
 namespace Game
 {
-  extern std::unordered_map<std::string, Texture2D *> hero_animations;
+  extern AssetManager assetManager;
+  extern Entity::Entity *hero;
   void setGameWindowConfig();
-  void loadAssets();
+  void loadHeroAssets();
   void clearAssets();
   void gameLoop();
-
 }
