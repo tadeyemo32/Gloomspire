@@ -7,7 +7,7 @@ namespace Game
 {
 
   AssetManager assetManager;
-  Entity::Entity *hero = nullptr;
+  Hero::Hero *hero = nullptr;
 
   void loadHeroAssets()
   {
@@ -17,8 +17,9 @@ namespace Game
     assetManager.LoadTexture("JUMP", "assets/hero/JUMP.png");
     assetManager.LoadTexture("IDLE", "assets/hero/IDLE.png");
 
-    hero = new Entity::Entity(assetManager.GetTexture("IDLE"), {100, 100}, 32, 32);
+    hero = new Hero::Hero(assetManager.GetTexture("IDLE"), {720 / 2, 720 / 2}, 32, 32); // initial hero positon
   }
+
   void clearAssets()
   {
     if (hero != nullptr)

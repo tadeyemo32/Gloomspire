@@ -20,7 +20,6 @@ namespace Entity
       std::cout << "Entity created Succefully Position - " << " X:" << p.x << " Y:" << p.y << std::endl;
       texture = text;
       pos = p;
-      ;
     }
     virtual ~Entity() = default;
     virtual void draw();

@@ -8,7 +8,6 @@ namespace Entity
   {
     if (texture)
     {
-      // Constants based on WALK.png
       const int totalFrames = 8;
       const int spriteSheetWidth = 768;
       const int spriteSheetHeight = 84;

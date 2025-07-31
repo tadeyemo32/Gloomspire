@@ -22,6 +22,7 @@ add_executable(${PROJECT_NAME}
     src/game.cpp
     src/entity.cpp
     src/assetManager.cpp
+    src/hero.cpp
     include/game.h
     include/constants.h
     include/entity.h
