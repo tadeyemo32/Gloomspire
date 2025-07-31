@@ -6,7 +6,7 @@ namespace Entity
 {
   class Entity
   {
-  private:
+  protected:
     int health = 100;
     Vector2 pos;
     Texture2D *texture;

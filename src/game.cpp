@@ -44,10 +44,11 @@ namespace Game
     {
       float deltaTime = GetFrameTime();
 
+      hero->update(deltaTime);
+
       BeginDrawing();
       ClearBackground(SKYBLUE);
 
-      // Draw the hero
       if (hero != nullptr)
       {
         hero->draw();
