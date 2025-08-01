@@ -8,4 +8,5 @@ int main()
   Game::setGameWindowConfig();
   Game::gameLoop();
   return 0;
+
 }

@@ -5,19 +5,23 @@
 
 namespace Game
 {
-
   AssetManager assetManager;
+  Animation::AnimationHandler animationHandler;
   Hero::Hero *hero = nullptr;
 
   void loadHeroAssets()
   {
-    assetManager.LoadTexture("ATTACK_1", "assets/hero/ATTACK 1.png");
+    assetManager.LoadTexture("IDLE", "assets/hero/IDLE.png");
     assetManager.LoadTexture("WALK", "assets/hero/WALK.png");
     assetManager.LoadTexture("RUN", "assets/hero/RUN.png");
     assetManager.LoadTexture("JUMP", "assets/hero/JUMP.png");
-    assetManager.LoadTexture("IDLE", "assets/hero/IDLE.png");
+    assetManager.LoadTexture("ATTACK", "assets/hero/ATTACK 1.png");
+    assetManager.LoadTexture("HURT", "assets/hero/HURT.png");
+    assetManager.LoadTexture("DEFEND", "assets/hero/DEFEND.png");
+    assetManager.LoadTexture("DEATH", "assets/hero/DEATH.png");
+    assetManager.LoadTexture("Falling", "assets/hero/JUMP.png"); // Using jump sprites for falling
 
-    hero = new Hero::Hero(assetManager.GetTexture("IDLE"), {720 / 2, 720 / 2}, 32, 32); // initial hero positon
+    hero = new Hero::Hero(assetManager.GetTexture("IDLE"), {720 / 2, 720 / 2}, 32, 32);
   }
 
   void clearAssets()
@@ -29,7 +33,8 @@ namespace Game
     }
     assetManager.UnloadAllTextures();
   }
-  void setGameWindowConfig() // window config
+
+  void setGameWindowConfig()
   {
     SetConfigFlags(FLAG_WINDOW_HIGHDPI | FLAG_VSYNC_HINT);
     InitWindow(Constants::width, Constants::height, Constants::windowName.c_str());
@@ -45,9 +50,13 @@ namespace Game
       float deltaTime = GetFrameTime();
 
       hero->update(deltaTime);
+      animationHandler.HandleAnimation(*hero);
 
       BeginDrawing();
       ClearBackground(SKYBLUE);
+
+      // Draw ground
+      DrawRectangle(0, GetScreenHeight() - 50, GetScreenWidth(), 50, GREEN);
 
       if (hero != nullptr)
       {

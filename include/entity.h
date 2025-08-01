@@ -13,6 +13,7 @@ namespace Entity
     Vector2 source;
 
   public:
+    Entity() {}
     Entity(Texture2D *text, Vector2 p, int x, int y)
     {
       source.x = x;
