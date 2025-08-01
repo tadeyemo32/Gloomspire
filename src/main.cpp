@@ -3,7 +3,6 @@
 #include "game.h"
 #include "hero.h"
 
-
 int main()
 {
   Game::setGameWindowConfig();
